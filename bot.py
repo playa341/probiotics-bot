@@ -13,12 +13,12 @@ users = set()
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.effective_chat.id
     users.add(chat_id)
-    await update.message.reply_text("Привет! ✅ Ты подписан на напоминание в 15:00 про пробиотики.")
+    await update.message.reply_text("приветик! ✅ теперь подписана на напоминание в 15:00 про то что тебе БЛЯДЬ НАДО ВЫПИТЬ пробиотики.")
 
 async def remind_all(context: ContextTypes.DEFAULT_TYPE):
     if not users:
         return
-    message = "🕒 15:00!\n\nОлеся и все!\nВыпей пробиотики ❤️"
+    message = "🕒 15:00!\n\nОлеся!\nВыпей пробиотики, пожалуйста ❤️"
     for chat_id in list(users):
         try:
             await context.bot.send_message(chat_id=chat_id, text=message)
